@@ -55,17 +55,13 @@ El orden en que se ensambla el documento está declarado en las listas `CARATULA
 
 La única dependencia es `python-docx`. **No hace falta Pandoc** (ver sección 4).
 
-### Python
-
-No está instalado en este equipo. Desde PowerShell:
+Ya están instaladas en este equipo (Python 3.12.10 y python-docx 1.2.0). Para reproducir el entorno en otra máquina:
 
 ```powershell
 winget install --id Python.Python.3.12 -e
 ```
 
-Cerrar y reabrir la terminal para que `python` quede en el PATH.
-
-### python-docx
+Cerrar y reabrir la terminal para que `python` quede en el PATH, y luego:
 
 ```powershell
 python -m pip install -r build/requirements.txt
@@ -115,6 +111,7 @@ Todas las medidas están centralizadas en [`build/formato.py`](build/formato.py)
 | Encabezados de nivel 1 centrados, en mayúscula, negrita, sin punto final | `agregar_titulo` (nivel 1) + estilo `Heading 1` |
 | Subtítulos en negrita, caja tal como se escribieron | estilos `Heading 2` / `Heading 3` |
 | Índice como tabla de contenido automática | campo `TOC \o "1-3" \h \z \u` + `<w:updateFields/>` |
+| El índice no se lista a sí mismo | el encabezado ÍNDICE usa el estilo `Titulo preliminar`, idéntico a la vista pero fuera del TOC |
 | Dedicatoria justificada al margen derecho | estilo `Dedicatoria` |
 | Agradecimiento centrado | estilo `Agradecimiento` |
 | Bibliografía en orden alfabético, sangría francesa APA 7 | estilo `Bibliografia APA` |
@@ -129,6 +126,11 @@ Están todas marcadas con comentario en `build/formato.py` y se revierten en una
 - **Romanos en minúscula** (i, ii, iii) para la parte pre textual (`FORMATO_NUM_PRELIMINARES`); cambiar a `"upperRoman"` para I, II, III.
 - **Carátula en la página i, sin número impreso;** la dedicatoria arranca en ii.
 - **Bibliografía alineada a la izquierda** en lugar de justificada: las entradas con URLs largas abren huecos entre palabras que APA desaconseja.
+- **La dedicatoria y los agradecimientos sí aparecen en el índice**, con su numeración romana; el índice no se lista a sí mismo. Para excluirlos también, aplicarles el estilo `Titulo preliminar` en `generar_docx.py`, igual que se hace con el encabezado ÍNDICE.
+
+### Verificación realizada
+
+El build se probó de punta a punta abriendo el resultado en Word: 52 comprobaciones estructurales sobre el `.docx` (secciones, `pgNumType`, márgenes, estilos, campos, orden y caja de los títulos) más la actualización real del campo TOC. El índice se genera con la paginación correcta —romanos en los preliminares (ii, iii), arábigos desde la Introducción (1)— y la carátula entra en una sola página.
 
 ### Por qué python-docx y no Pandoc
 
@@ -172,6 +174,8 @@ Cada capítulo del cuerpo responde a **un único objetivo específico**, decisi�
 - **Pregunta operativa heredada del Capítulo I:** bajo qué criterio tarifario se cobra hoy la Apostilla en la práctica, dado que ni la Ley N.º 4.987/13 ni el Decreto N.º 520/13 fijan una tasa expresa. Se responde en el Capítulo II.
 - **`## OBJETIVOS` es un título de nivel 2**, no de nivel 1: así fluye a continuación de la Introducción, que termina anunciándolos, en vez de abrir página nueva. En el índice aparece anidado bajo INTRODUCCIÓN. Si se prefiere como sección independiente, cambiar `##` por `#` en `cuerpo/objetivos.md`.
 - El Capítulo V debe organizarse en subtítulos explícitos de **viabilidad técnica / operativa / normativa**, conforme a la observación del profesor.
+- **`### GENERAL` y `### ESPECÍFICOS` están en mayúsculas** en `cuerpo/objetivos.md` y así aparecen en el índice. La Resolución pide que los subtítulos lleven "primera letra mayúscula y el resto minúscula". El texto se dejó tal como fue redactado; para cumplir la regla al pie de la letra habría que escribirlos `### General` y `### Específicos`.
+- **Extensión actual: 16 páginas de cuerpo computable** según Word (de la Introducción a las Conclusiones), sobre un mínimo de 20. Buena parte son páginas casi vacías de los capítulos pendientes. El informe del build da una estimación por recuento de palabras, siempre algo por debajo del recuento real de Word.
 
 ---
 

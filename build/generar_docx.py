@@ -191,11 +191,11 @@ def escribir_texto(parrafo, texto, tam=TAM_CUERPO):
     return parrafo
 
 
-def agregar_titulo(documento, nivel, texto, salto_pagina):
+def agregar_titulo(documento, nivel, texto, salto_pagina, estilo=None):
     if nivel == 1:
         # "centrado, mayúsculas, negrita, sin punto final".
         texto = texto.rstrip(".").upper()
-    parrafo = documento.add_paragraph(style=f"Heading {nivel}")
+    parrafo = documento.add_paragraph(style=estilo or f"Heading {nivel}")
     parrafo.paragraph_format.page_break_before = salto_pagina
     return escribir_texto(parrafo, texto)
 
@@ -259,7 +259,10 @@ def agregar_indice(documento, bloques):
     """Encabezado ÍNDICE + campo TOC nativo, que Word actualiza solo."""
     for tipo, texto in bloques:
         if tipo == "h1":
-            agregar_titulo(documento, 1, texto, salto_pagina=True)
+            # "Titulo preliminar" tiene el aspecto de un título de nivel 1 pero
+            # no es un estilo de título: así el índice no se lista a sí mismo.
+            agregar_titulo(documento, 1, texto, salto_pagina=True,
+                           estilo="Titulo preliminar")
 
     parrafo = documento.add_paragraph()
     parrafo.alignment = WD_ALIGN_PARAGRAPH.LEFT

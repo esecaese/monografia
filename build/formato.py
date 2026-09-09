@@ -63,8 +63,12 @@ FORMATO_NUM_CUERPO = "decimal"
 IDIOMA = "es-PY"
 
 # Estimación usada solo para el informe de extensión que imprime el build.
-# No sustituye al recuento real de páginas que hace Word.
-PALABRAS_POR_PAGINA = 380
+# No sustituye al recuento real de páginas que hace Word: es un valor calibrado
+# midiendo el documento ya compuesto (Times New Roman 12, interlineado 1,5,
+# 18 pt entre párrafos, A4 con estos márgenes) y no contempla las páginas que
+# consumen los títulos ni el espacio en blanco al pie de cada capítulo, por lo
+# que tiende a quedar por debajo del recuento real.
+PALABRAS_POR_PAGINA = 250
 EXTENSION_MINIMA_PAGINAS = 20
 EXTENSION_MAXIMA_PAGINAS = 50
 
@@ -121,7 +125,9 @@ def aplicar_fuente(fuente_o_run, nombre=FUENTE, tam=None):
     if tam is not None:
         objeto.size = Pt(tam)
 
-    elemento = getattr(fuente_o_run, "element", None) or fuente_o_run._element
+    elemento = getattr(fuente_o_run, "element", None)
+    if elemento is None:
+        elemento = fuente_o_run._element
     r_pr = elemento.get_or_add_rPr()
     r_fonts = r_pr.get_or_add_rFonts()
     for atributo in ("w:ascii", "w:hAnsi", "w:eastAsia", "w:cs"):

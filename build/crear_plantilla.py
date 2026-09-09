@@ -153,6 +153,18 @@ def _estilos_indice(documento):
 
 
 def _estilos_propios(documento):
+    # Encabezado con el mismo aspecto que "Heading 1" pero SIN ser un estilo de
+    # título: el campo TOC recoge por estilo (switch \o "1-3"), de modo que un
+    # párrafo con este estilo no aparece en el índice. Se usa en el encabezado
+    # "ÍNDICE", que no debe listarse a sí mismo.
+    preliminar = _obtener_o_crear(documento, "Titulo preliminar", base="Normal")
+    aplicar_fuente(preliminar, FUENTE, TAM_CUERPO)
+    preliminar.font.bold = True
+    preliminar.font.color.rgb = NEGRO
+    _fijar_idioma(preliminar)
+    _parrafo(preliminar, WD_ALIGN_PARAGRAPH.CENTER, espacio_despues=Pt(24))
+    preliminar.paragraph_format.keep_with_next = True
+
     # Dedicatoria: "centrada en la página, justificada al margen derecho".
     dedicatoria = _obtener_o_crear(documento, "Dedicatoria", base="Normal")
     aplicar_fuente(dedicatoria, FUENTE, TAM_CUERPO)
