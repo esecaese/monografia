@@ -71,7 +71,7 @@ python -m pip install -r build/requirements.txt
 
 ## 3. Generar el documento
 
-Desde la raíz de `segundo-semestre/monografia`:
+Desde la raíz del repositorio:
 
 ```powershell
 python build/generar_docx.py
@@ -199,10 +199,10 @@ La Resolución exige insertarlos **como imagen**. El flujo previsto: guardar la 
 
 ## 7. Repositorio
 
-Este directorio vive dentro del repositorio [`esecaese/academia`](https://github.com/esecaese/academia), que ya está conectado a GitHub. Para publicar cambios:
+Repositorio propio, separado de las materias del curso: [`esecaese/monografia`](https://github.com/esecaese/monografia). Vive en `C:\Users\svenp\Desktop\Monografia` y el remoto ya está configurado, así que para publicar cambios alcanza con:
 
 ```bash
 git push
 ```
 
-No hace falta `git remote add origin`: el remoto ya está configurado.
+Nació dentro de `esecaese/academia`, en `segundo-semestre/monografia`, y se movió acá con `git subtree split` conservando la historia: los dos primeros commits son los originales.
