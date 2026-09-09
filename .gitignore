@@ -1,0 +1,37 @@
+# --- Archivos temporales de Word / Office ---
+~$*.docx
+~$*.doc
+~$*.dotx
+~$*.xlsx
+~$*.pptx
+*.tmp
+*.wbk
+*.asd
+.~lock.*#
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# --- Salidas del build ---
+# El .docx se regenera desde los .md, que son la fuente de verdad.
+# Si querés versionar un entregable concreto (p. ej. la copia exacta
+# presentada al Tribunal), forzá su inclusión:
+#     git add -f output/monografia-aranceles-consulares-ENTREGA.docx
+output/*.docx
+output/*.pdf
+output/_combinado.md
+
+# La plantilla de referencia se genera con build/crear_plantilla.py.
+# Descomentar la línea siguiente si preferís NO versionarla.
+# referencia/plantilla_formato.docx
+
+# --- Sistema operativo ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

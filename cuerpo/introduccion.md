@@ -1,0 +1,13 @@
+# INTRODUCCIÓN
+
+En el contexto contemporáneo de la administración pública, la adopción del gobierno digital se ha consolidado como un pilar fundamental para garantizar la eficiencia, transparencia e inclusión en la provisión de servicios estatales.
+
+Este modelo implica el uso estratégico de tecnologías avanzadas para simplificar trámites administrativos, eliminar la burocracia física y avanzar hacia procesos más ágiles bajo principios como el de "cero papeles". Dentro de estas tecnologías, la inteligencia artificial ofrece la posibilidad de sistematizar y traducir complejos marcos normativos en reglas lógicas automatizadas.
+
+En este escenario se inscribe la presente investigación, la cual analiza la modernización de los servicios consulares a través de la automatización de la liquidación de aranceles en el Ministerio de Relaciones Exteriores del Paraguay. La propuesta se caracteriza por plantear el diseño y la viabilidad de un asistente virtual integrado al portal de apostillas que cumpla una triple función: evacuar consultas, guiar al usuario en el proceso y calcular de forma automática las tarifas correspondientes.
+
+A pesar de las tendencias globales de digitalización, el sistema de liquidación de aranceles para legalizaciones y apostillas en el MRE opera actualmente bajo una estructura predominantemente manual y altamente centralizada en Asunción. En la práctica cotidiana, esto se traduce en barreras significativas de acceso para los ciudadanos residentes en el interior del país o en el extranjero, quienes se ven obligados a realizar traslados costosos, perder jornadas de trabajo o depender de intermediarios que encarecen sustancialmente los trámites. Asimismo, la persistencia de procesos manuales genera una tasa de incertidumbre, ya que el usuario desconoce el monto exacto a abonar hasta que un funcionario realiza el cálculo en sede capitalina. Esta falta de inmediatez y equidad territorial colisiona con el deber del Estado de prestar servicios públicos en igualdad de condiciones. Ante esta problemática, surge la necesidad de explorar alternativas tecnológicas que permitan descentralizar y transparentar dicho cálculo bajo el marco de la Ley N.º 1.030/97 y la Ley N.º 4.987/13, sin alterar la legislación vigente. A raíz de esta situación, se plantea la siguiente pregunta de investigación:
+
+¿En qué medida es viable automatizar la liquidación de aranceles consulares mediante un asistente virtual integrado al sistema de apostilla del Ministerio de Relaciones Exteriores del Paraguay, bajo el marco normativo vigente y los principios de la gestión digital pública?
+
+Para responder a la pregunta de investigación se elaboran los siguientes objetivos de investigación:

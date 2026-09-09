@@ -1,0 +1,2 @@
+# Única dependencia del build. No se requiere Pandoc.
+python-docx>=1.1.0
