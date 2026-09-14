@@ -4,7 +4,9 @@
 # tipografía exacta exigida. Los campos marcados con `_24pt` se componen en
 # Times New Roman 24; el resto, en Times New Roman 12.
 #
-# PENDIENTE: definir `mes_anio` antes de la entrega final.
+# `mes_anio_24pt` vale `auto`: el build lo resuelve al mes y año en que se corre.
+# Para congelar la fecha de la entrega, reemplazar `auto` por el texto literal
+# (por ejemplo, "Noviembre de 2026").
 
 institucion_24pt:
   - "Ministerio de Relaciones Exteriores"
@@ -20,7 +22,7 @@ autor: "Sven Knutson Sachelaridi"
 
 ciudad: "Asunción"
 
-mes_anio_24pt: "[MES] de [AÑO]"
+mes_anio_24pt: "auto"
 ---
 
 <!--

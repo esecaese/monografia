@@ -159,6 +159,7 @@ Todas las medidas están centralizadas en [`build/formato.py`](build/formato.py)
 | Espacio entre párrafos 1,5 | `ESPACIO_ENTRE_PARRAFOS` (18 pt = 1,5 × 12 pt) |
 | Notas al pie: misma fuente, tamaño 10, interlineado 1,5 | estilos `Footnote Text` / `Endnote Text` |
 | Carátula con bloques en 24 pt | `generar_docx.py` → `agregar_caratula`, leyendo el YAML de `caratula.md` |
+| Fecha de presentación en la carátula | `mes_anio_24pt: "auto"` → `resolver_mes_anio`, con los nombres de `MESES` |
 | Parte pre textual en números romanos, centrados arriba | secciones 1-2, `numerar_paginas(..., "lowerRoman")` |
 | Cuerpo en números arábigos desde la Introducción, centrados arriba | sección 3, `numerar_paginas(..., "decimal")` |
 | Encabezados de nivel 1 centrados, en mayúscula, negrita, sin punto final | `agregar_titulo` (nivel 1) + estilo `Heading 1` |
@@ -184,6 +185,7 @@ Están todas marcadas con comentario en `build/formato.py` y se revierten en una
 - **Alineación del texto corrido:** justificada (`ALINEACION_CUERPO`).
 - **Romanos en minúscula** (i, ii, iii) para la parte pre textual (`FORMATO_NUM_PRELIMINARES`); cambiar a `"upperRoman"` para I, II, III.
 - **Carátula en la página i, sin número impreso;** la dedicatoria arranca en ii.
+- **Nombre del mes en la carátula:** `"Setiembre"`, no `"Septiembre"` (`MESES`, en `formato.py`). Ambas formas son correctas; se eligió la habitual en la normativa paraguaya. Van con inicial mayúscula porque la fecha es una línea suelta de portada y no texto corrido.
 - **Bibliografía alineada a la izquierda** en lugar de justificada: las entradas con URLs largas abren huecos entre palabras que APA desaconseja.
 - **La dedicatoria y los agradecimientos sí aparecen en el índice**, con su numeración romana. Para excluirlos, aplicarles el estilo `Titulo preliminar` en `generar_docx.py`, igual que al encabezado ÍNDICE.
 
@@ -203,7 +205,7 @@ Resolverlo todo en un solo paso elimina una dependencia pesada y deja una única
 
 | Sección | Estado |
 |---|---|
-| Carátula | Estructura lista — **falta definir mes y año de presentación** |
+| Carátula | Completa — la fecha se resuelve sola al generar |
 | Dedicatoria | Redactada |
 | Agradecimientos | **Borrador** — reemplazar por texto propio, o quitar del manifiesto (es opcional) |
 | Índice | Automático (campo TOC) |
@@ -226,7 +228,7 @@ Cada capítulo del cuerpo responde a **un único objetivo específico**, decisi�
 
 ### Pendientes abiertos
 
-- **Mes y año** de presentación en `preliminares/caratula.md` (hoy dice `[MES] de [AÑO]`).
+- **Congelar la fecha de la carátula** al entregar: hoy vale `auto` y sigue al reloj, de modo que el mes cambia si el documento se regenera más adelante. Antes de imprimir la versión definitiva, reemplazar `auto` por el texto literal en `preliminares/caratula.md`.
 - **Ficha APA completa de Alfonso (1995)**, citado en Metodología y todavía sin referencia localizada.
 - **Día y mes exactos del Decreto N.º 2129/14** para la ficha bibliográfica: el escaneo de SILpy los trae ilegibles por OCR. Todo indica el 26 de agosto de 2014; falta confirmarlo contra la copia oficial.
 - **Vigencia del Decreto N.º 2129/14 frente a la Ley N.º 7196/23**, que deroga artículos de la Ley N.º 4.033/10. Hay que verificar si alcanza al artículo 6º (la delegación en que el Decreto se funda) y, en su caso, qué efecto tiene sobre la tasa de la Apostilla. Se resuelve en el Capítulo II.
@@ -317,6 +319,16 @@ Dos hallazgos que conviene no perder, porque son argumento y no sólo dato:
 
 - La ley habilitante fija como finalidad expresa de la delegación **proceder a través de medios informáticos**. Es respaldo normativo directo para la propuesta, útil en el Capítulo V (viabilidad normativa).
 - Las exoneraciones del artículo 3º condicionan el arancel **al sujeto solicitante**, no al documento. Es una regla de decisión que el asistente debe modelar aparte del tipo de trámite (Capítulos III y IV).
+
+### Fecha de la carátula
+
+La portada arrastraba el marcador `[MES] de [AÑO]`, que era una forma segúra de entregar el
+trabajo con el marcador puesto. Ahora `mes_anio_24pt` acepta el valor `auto` y el build lo
+resuelve al mes y año en que se corre, con los nombres de `MESES` en `formato.py`.
+
+Se dejó como valor y no como código fijo a propósito: escribir la fecha literal en
+`caratula.md` sigue funcionando y tiene prioridad sobre `auto`. Eso importa al entregar,
+porque una fecha automática cambia sola si el documento se regenera al mes siguiente.
 
 ### Rastrillos ya pisados
 

@@ -23,6 +23,7 @@ definición del formato, en build/formato.py.
 
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -41,6 +42,7 @@ from formato import (                                        # noqa: E402
     FORMATO_NUM_PRELIMINARES,
     FUENTE,
     PALABRAS_POR_PAGINA,
+    MESES,
     TAM_CARATULA,
     TAM_CUERPO,
     aplicar_fuente,
@@ -229,6 +231,20 @@ def espaciador(documento, cantidad=1):
 # Piezas especiales
 # --------------------------------------------------------------------------
 
+# Valor de `mes_anio_24pt` que se resuelve al mes y año en que se corre el build.
+# Para congelar una fecha distinta —la de la entrega, por ejemplo— basta con
+# escribirla literalmente en preliminares/caratula.md.
+MES_ANIO_AUTOMATICO = "auto"
+
+
+def resolver_mes_anio(valor):
+    """Resuelve el campo `mes_anio_24pt` de la carátula."""
+    if valor.strip().lower() != MES_ANIO_AUTOMATICO:
+        return valor
+    hoy = date.today()
+    return f"{MESES[hoy.month - 1]} de {hoy.year}"
+
+
 def agregar_caratula(documento, datos):
     """Portada según la Resolución N.º 1055/2024, parte pre textual, punto 1."""
     def linea(texto, tam):
@@ -252,7 +268,7 @@ def agregar_caratula(documento, datos):
 
     espaciador(documento, 2)
     linea(datos.get("ciudad", ""), TAM_CUERPO)
-    linea(datos.get("mes_anio_24pt", ""), TAM_CARATULA)
+    linea(resolver_mes_anio(datos.get("mes_anio_24pt", "")), TAM_CARATULA)
 
 
 def agregar_indice(documento, bloques):

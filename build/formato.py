@@ -62,6 +62,16 @@ FORMATO_NUM_CUERPO = "decimal"
 
 IDIOMA = "es-PY"
 
+# Nombres de los meses, para la fecha de la carátula. La Resolución no fija la
+# forma. En el uso paraguayo conviven "setiembre" y "septiembre"; se adopta
+# "setiembre", la habitual en la normativa nacional. Cambiar aquí si se prefiere
+# la otra. Van con inicial mayúscula porque en la portada la fecha es una línea
+# suelta, no texto corrido.
+MESES = (
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre",
+)
+
 # Estimación usada solo para el informe de extensión que imprime el build.
 # No sustituye al recuento real de páginas que hace Word: es un valor calibrado
 # midiendo el documento ya compuesto (Times New Roman 12, interlineado 1,5,
