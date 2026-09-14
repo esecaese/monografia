@@ -26,7 +26,7 @@ POR_DEFECTO = RAIZ / "output" / "monografia-aranceles-consulares.docx"
 # Cantidades esperadas del documento en su estado actual. Actualizar cuando el
 # contenido cambie a propósito: que estos números fallen es la señal de que algo
 # se agregó o se perdió sin querer.
-ENTRADAS_BIBLIOGRAFIA = 14   # 7 fuentes primarias + 7 secundarias
+ENTRADAS_BIBLIOGRAFIA = 16   # 9 fuentes primarias + 7 secundarias
 VINETAS_OBJETIVOS = 6        # 1 objetivo general + 5 específicos
 CANTIDAD_CAPITULOS = 5
 

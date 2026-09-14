@@ -8,6 +8,8 @@
 - Ley N.º 4.033/10 del Arancel Consular. (2010). Congreso de la Nación Paraguaya. http://www.bacn.gov.py/leyes-paraguayas/513/
 - Ley N.º 4.987/13 que aprueba el Convenio Suprimiendo la Exigencia de Legalización de los Documentos Públicos Extranjeros. (2013). Congreso de la Nación Paraguaya. https://www.bacn.gov.py/leyes-paraguayas/4769/
 - Decreto N.º 520/13 por el cual se designa al Ministerio de Relaciones Exteriores como autoridad competente para la expedición de Apostilla. (2013). Presidencia de la República del Paraguay. https://www.mre.gov.py/wp-content/uploads/normativa-institucional/11_Decreto_N_520-13.Apostilla.pdf
+- Ley N.º 5.254/14 que modifica los artículos 3º, 6º, 12 y 14 de la Ley N.º 4.033/2010, del Arancel Consular. (2014). Congreso de la Nación Paraguaya.
+- Decreto N.º 2129/14 por el cual se reglamenta la Ley N.º 5.254/2014 y se establecen las tasas por la expedición de la Apostilla en la Dirección de Legalizaciones del Ministerio de Relaciones Exteriores. (2014). Presidencia de la República del Paraguay. https://silpy.congreso.gov.py/web/descarga/decreto-100077
 - Ley N.º 7196/23 que deroga varios artículos de la Ley N.º 4.033/2010, del Arancel Consular. (2023). Congreso de la Nación Paraguaya. https://www.bacn.gov.py/leyes-paraguayas/12025/
 
 ## Fuentes secundarias (académicas e institucionales)
@@ -21,3 +23,5 @@
 - Russell, S., y Norvig, P. (2021). *Artificial intelligence: A modern approach* (4.ª ed.). Pearson.
 
 <!-- PENDIENTE: verificar y completar la ficha bibliográfica completa de Alfonso (1995), citado en Metodología, aún sin referencia completa localizada. -->
+
+<!-- PENDIENTE: confirmar el día y mes exactos del Decreto N.º 2129/14 contra la copia oficial. El ejemplar escaneado publicado en SILpy trae la fecha ilegible por OCR ("Asunción, 26 de ... de 2014"); por la Ley N.º 5.254 del 1 de agosto de 2014 que reglamenta y por la fecha de digitalización del PDF (8 de septiembre de 2014), corresponde al 26 de agosto de 2014, pero conviene verificarlo antes de la entrega. -->
