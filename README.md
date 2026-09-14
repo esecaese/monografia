@@ -228,7 +228,10 @@ Cada capítulo del cuerpo responde a **un único objetivo específico**, decisi�
 
 - **Mes y año** de presentación en `preliminares/caratula.md` (hoy dice `[MES] de [AÑO]`).
 - **Ficha APA completa de Alfonso (1995)**, citado en Metodología y todavía sin referencia localizada.
-- **Pregunta operativa heredada del Capítulo I:** bajo qué criterio tarifario se cobra hoy la Apostilla en la práctica, dado que ni la Ley N.º 4.987/13 ni el Decreto N.º 520/13 fijan una tasa expresa. Se responde en el Capítulo II.
+- **Día y mes exactos del Decreto N.º 2129/14** para la ficha bibliográfica: el escaneo de SILpy los trae ilegibles por OCR. Todo indica el 26 de agosto de 2014; falta confirmarlo contra la copia oficial.
+- **Vigencia del Decreto N.º 2129/14 frente a la Ley N.º 7196/23**, que deroga artículos de la Ley N.º 4.033/10. Hay que verificar si alcanza al artículo 6º (la delegación en que el Decreto se funda) y, en su caso, qué efecto tiene sobre la tasa de la Apostilla. Se resuelve en el Capítulo II.
+- **Valor del jornal mínimo diario vigente**, para poder expresar los aranceles en guaraníes en el Capítulo II.
+- **La Ley N.º 6935/22 ya no se cita en el cuerpo** tras la corrección del § 1.3, pero sigue en la bibliografía. APA 7 pide que la lista de referencias sólo contenga obras citadas en el texto. Sostiene la ficha el hecho de que la carátula invoca su artículo 110; si se prefiere el criterio estricto, hay que quitar la entrada.
 - El **Capítulo V** debe organizarse en subtítulos explícitos de **viabilidad técnica / operativa / normativa**, conforme a la observación del profesor.
 - **`## OBJETIVOS` es un título de nivel 2**, no de nivel 1: así fluye a continuación de la Introducción, que termina anunciándolos, en vez de abrir página nueva. En el índice aparece anidado bajo INTRODUCCIÓN. Si se prefiere como sección independiente, cambiar `##` por `#` en `cuerpo/objetivos.md`.
 - **`### GENERAL` y `### ESPECÍFICOS` están en mayúsculas** en `cuerpo/objetivos.md` y así aparecen en el índice. La Resolución pide que los subtítulos lleven "primera letra mayúscula y el resto minúscula". El texto se dejó tal como fue redactado; para cumplir la regla al pie de la letra habría que escribirlos `### General` y `### Específicos`.
@@ -291,6 +294,29 @@ Se instaló Python 3.12 y se corrió el build de punta a punta, abriendo el resu
 El trabajo nació dentro de `esecaese/academia`, en `segundo-semestre/monografia`. Se movió a `esecaese/monografia` con **`git subtree split`**, que conserva la historia: los dos primeros commits son los originales, con sus mensajes y fechas.
 
 Los commits de la monografía en `academia` nunca se habían publicado, y el commit que quitaba la carpeta dejaba el contenido idéntico a `origin/main` — o sea, en neto no cambiaban nada. Se descartaron con `git reset --hard origin/main` para no dejar un rodeo visible en el historial del proyecto principal. En `academia` ya no queda rastro de la monografía.
+
+### Corrección de la base tarifaria de la Apostilla
+
+El Capítulo I afirmaba que ninguna norma fijaba una tasa expresa para la Apostilla y dejaba la
+cuestión abierta al Capítulo II. Resultó ser incorrecto. La cadena es: la **Ley N.º 5.254/14**
+modificó los artículos 3º, 6º, 12 y 14 de la **Ley N.º 4.033/10** (Arancel Consular) y, en su
+artículo 6º in fine, facultó al Poder Ejecutivo y al MRE a fijar los montos; en ejercicio de esa
+facultad se dictó el **Decreto N.º 2129/14**, que establece la Apostilla en **dos jornales mínimos
+diarios**, designa a la Dirección de Legalizaciones como emisora y perceptora, y exonera del pago
+a los beneficiarios del artículo 17 de la Ley N.º 4.033/10, a las instituciones públicas y a los
+diplomáticos por reciprocidad.
+
+Se verificó contra el texto oficial: el PDF de SILpy es un escaneo, y se le extrajo la capa de
+texto OCR descomprimiendo los streams del PDF con `zlib` (no hay poppler en este equipo).
+
+Efecto colateral: el párrafo del § 1.1 que descartaba la Ley N.º 4.033/10 como base legal pasó a
+contradecir al § 1.2, porque la tasa de la Apostilla deriva justamente de esa línea normativa.
+Se quitó.
+
+Dos hallazgos que conviene no perder, porque son argumento y no sólo dato:
+
+- La ley habilitante fija como finalidad expresa de la delegación **proceder a través de medios informáticos**. Es respaldo normativo directo para la propuesta, útil en el Capítulo V (viabilidad normativa).
+- Las exoneraciones del artículo 3º condicionan el arancel **al sujeto solicitante**, no al documento. Es una regla de decisión que el asistente debe modelar aparte del tipo de trámite (Capítulos III y IV).
 
 ### Rastrillos ya pisados
 
