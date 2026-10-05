@@ -27,7 +27,7 @@ POR_DEFECTO = RAIZ / "output" / "monografia-aranceles-consulares.docx"
 # contenido cambie a propósito: que estos números fallen es la señal de que algo
 # se agregó o se perdió sin querer.
 ENTRADAS_BIBLIOGRAFIA = 19   # 11 fuentes primarias + 8 secundarias
-VINETAS_OBJETIVOS = 12       # 6 en Objetivos (1 general + 5 específicos) + 6 en el § 2.2
+VINETAS_OBJETIVOS = 6        # 1 objetivo general + 5 específicos
 CANTIDAD_CAPITULOS = 5
 
 # Indicación del profesor: estas secciones llevan el título de nivel 1 en modo

@@ -264,6 +264,23 @@ Si aparece un problema real —una cita incompleta, una contradicción entre cap
 
 Las secciones que el autor no redactó (carátula, agradecimientos) sí se pueden draftear, marcándolas como borrador.
 
+### Extensión: de 3 a 4 páginas por capítulo
+
+Decisión del autor. Con cinco capítulos de ese tamaño, más la parte previa —Introducción,
+Objetivos, Justificación, Metodología y Limitaciones, que ocupan ocho páginas— y las Conclusiones,
+el trabajo supera con holgura el mínimo de 20 páginas sin volverse un tratado.
+
+De ahí se sigue un criterio de redacción: **los capítulos no se extienden en análisis normativo**.
+La norma se cita, se dice qué regla establece y se sigue adelante. Las discusiones de vigencia, las
+cadenas de derogaciones y los cotejos entre instrumentos quedan fuera del cuerpo; si hacen falta
+como respaldo, van en una nota de trabajo del `.md` o en `fuentes/README.md`.
+
+Para medir, lo único que sirve es Word: `verificar_en_word.ps1` informa en qué página física
+arranca cada título, y la resta da la extensión real del capítulo. El estimador por palabras del
+build aproxima el total del documento, pero no sirve capítulo por capítulo.
+
+Como referencia, el Capítulo I son 1.031 palabras en 3 páginas: unas **340 palabras por página**.
+
 ### Un commit por sección
 
 ```
