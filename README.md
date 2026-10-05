@@ -234,7 +234,13 @@ Resolverlo todo en un solo paso elimina una dependencia pesada y deja una única
 
 Cada capítulo del cuerpo responde a **un único objetivo específico**, decisión metodológica ya tomada.
 
-**Extensión actual: 29 páginas totales, 21 de cuerpo computable** según Word (de la Introducción a las Conclusiones), sobre un mínimo de 20. El mínimo ya se alcanza con los capítulos III a V y las Conclusiones todavía vacíos.
+**Extensión actual: 27 páginas totales, 19 de cuerpo computable** según Word (de la Introducción a las Conclusiones).
+
+Está una página por debajo del mínimo de 20, y es esperable: los capítulos III a V y las Conclusiones son hoy títulos
+vacíos que ocupan una página cada uno. Escritos a 3 o 4 páginas, suman entre 12 y 16, con lo que el cuerpo computable
+se irá por encima de 30. No hay nada que corregir hasta entonces.
+
+Extensión por capítulo, medida en Word: **Capítulo I, 3 páginas; Capítulo II, 4**.
 
 ### Pendientes abiertos
 
@@ -480,6 +486,22 @@ ajuste sea **favorable al consumidor**, y la tabla del MRE redondea siempre haci
 más en la Apostilla—, o sea en contra del usuario. Se dejó fuera para no alargar el capítulo, pero
 está anotado en el `capitulo-2.md` por si conviene retomarlo en el Capítulo V. Antes de afirmarlo
 hace falta el texto literal de la Resolución, que todavía no se consiguió.
+
+### Compactación del Capítulo II a cuatro páginas
+
+El capítulo había quedado en 6 páginas, muy por encima del criterio de 3 a 4. Se bajó a 4 en varias
+pasadas, de 2.042 a 1.397 palabras —un 32 % menos— sin perder ningún argumento. Lo que se hizo, de
+mayor a menor rendimiento:
+
+- **La escala de coeficientes del § 2.2 pasó de viñetas a prosa corrida.** Seis párrafos con interlineado de 18 pt costaban casi media página. `VINETAS_OBJETIVOS` volvió a 6.
+- **La cita en bloque del artículo 17 se reestructuró.** El bloque sangrado ocupa más espacio vertical del que sugieren sus palabras. Ahora el fuero de pobreza se parafrasea y se cita textual sólo la fórmula que importa analíticamente —"excepcionalmente en los casos indispensables y con criterio restrictivo"—, que al tener menos de 40 palabras va en línea y no en bloque, conforme a APA 7. Se conservan las dos notas que sostienen el argumento: el destinatario es el residente en el exterior, y la apreciación queda reservada al funcionario.
+- **El § 2.5 se quitó entero y se restituyó compacto**, de 405 a unas 195 palabras. La versión extensa está en `git show 0581fbe:cuerpo/capitulo-2.md`.
+- Condensación de prosa en los §§ 2.1, 2.3 y 2.4.
+
+Dos cosas que conviene saber antes de recortar otro capítulo:
+
+- **El § 2.5 no se puede eliminar sin más.** Es el único lugar que responde a la segunda mitad del Objetivo específico 2 —"identificando las barreras que enfrentan los usuarios de zonas rurales o del exterior"— y además lleva el cierre que enlaza con el Capítulo III. Se quitó una vez y hubo que traerlo de vuelta.
+- **Los títulos y los bloques sangrados pesan más que su recuento de palabras.** Un capítulo con cinco subtítulos rinde bastante menos que las 340 palabras por página del Capítulo I, que tiene tres. Al estimar, conviene descontarlo.
 
 ### Rastrillos ya pisados
 
