@@ -11,6 +11,8 @@ Trabajo monográfico del **Curso de Perfeccionamiento** de la Academia Diplomát
 
 **Pregunta de investigación.** ¿En qué medida es viable automatizar la liquidación de aranceles consulares mediante un asistente virtual integrado al sistema de apostilla del MRE, bajo el marco normativo vigente y los principios de la gestión digital pública?
 
+> **¿Retomando el trabajo en otro equipo?** Ver la sección 10, [Arrancar una sesión en cualquier equipo](#10-arrancar-una-sesión-en-cualquier-equipo).
+
 ---
 
 ## 1. Cómo funciona este repositorio
@@ -363,8 +365,75 @@ estén efectivamente alineados a la izquierda.
 
 ## 9. Repositorio
 
-Repositorio propio, separado de las materias del curso: [`esecaese/monografia`](https://github.com/esecaese/monografia). Vive en `C:\Users\svenp\Desktop\Monografia` y el remoto ya está configurado, así que para publicar cambios alcanza con:
+Repositorio propio, separado de las materias del curso: [`esecaese/monografia`](https://github.com/esecaese/monografia). Es la copia de referencia: el proyecto se clona en cada equipo donde se trabaja y no vive en una ruta fija. Con el remoto ya configurado, para publicar cambios alcanza con:
 
 ```bash
 git push
 ```
+
+---
+
+## 10. Arrancar una sesión en cualquier equipo
+
+El proyecto no depende de una máquina en particular: los `.md` son la fuente de verdad, el `.docx`
+se regenera, y el build corre en cualquier sistema con Python. Para retomar el trabajo en otro
+equipo alcanza con clonar el repositorio y pegar este prompt:
+
+```text
+Estoy retomando mi trabajo monográfico para la Academia Diplomática y Consular
+"Carlos Antonio López". El proyecto vive en GitHub:
+
+    https://github.com/esecaese/monografia
+
+Arrancá así:
+
+1. Si no está clonado en este equipo, clonalo. Si ya está, hacé git pull para
+   traer lo último.
+
+2. Leé el README.md completo antes de hacer nada. Es autosuficiente: tiene el
+   contexto, el formato exigido por la Resolución N.º 1055/2024, el estado de
+   avance, la bitácora de decisiones ya tomadas y las convenciones de trabajo.
+
+3. Configurá la identidad de git local al repositorio. No tengo identidad
+   global, así que sin esto los commits fallan:
+
+       git config --local user.name "esecaese"
+       git config --local user.email "knut.sach@gmail.com"
+
+   Si el push pide autenticación, resolvelo con gh auth login.
+
+4. Instalá la dependencia: pip install -r build/requirements.txt
+   Es la única (python-docx). No hace falta Pandoc. Si el comando "python" no
+   responde, buscá el intérprete en este equipo antes de darte por vencido —
+   suele no estar en el PATH.
+
+5. Corré el build y la verificación para confirmar que todo sigue sano, y
+   decime en qué estado está el trabajo:
+
+       python build/generar_docx.py
+       python build/verificar.py
+
+Dos cosas que quiero que tengas presentes desde el arranque:
+
+1. El texto de los .md ya está redactado y acordado. No lo reescribas ni lo
+   "mejores" — solo estructurá y formateá. Si ves un problema real,
+   señalamelo aparte y decido yo.
+
+2. Un commit por sección o capítulo, con mensaje descriptivo, y push al final.
+
+Hoy quiero trabajar en el Capítulo II (diagnóstico del procedimiento actual de
+liquidación). Te voy a ir pegando el texto para que lo integres y versiones.
+```
+
+La última línea es la que cambia según la sesión; el resto queda igual siempre.
+
+El prompt puede ser tan corto porque este README hace el trabajo pesado: apuntar acá y decir
+"leelo" alcanza. Por eso conviene mantenerlo al día.
+
+### Lo que cambia según el equipo
+
+- **La identidad de git no se hereda.** Está configurada local al repositorio y no a nivel global, así que un clon nuevo viene sin ella y los commits fallan. Por eso el prompt la incluye como paso explícito.
+- **El push es por HTTPS** y pide credenciales en cada equipo nuevo. `gh auth login` lo resuelve.
+- **`verificar_en_word.ps1` sólo corre en Windows con Word instalado.** Queda deliberadamente fuera del prompt para que no se intente donde va a fallar. Donde haya Word se pide aparte: es el único que da el recuento **real** de páginas contra el mínimo de 20, que el estimador del build sólo aproxima —y por debajo—.
+- **`output/` está en `.gitignore`.** El `.docx` no viaja por git: se regenera en cada equipo con `python build/generar_docx.py`.
+- **Antes de borrar una copia local**, comprobar que no quede nada sin publicar: `git status` limpio y `git log origin/main..HEAD` vacío. Y cerrar Word, porque el archivo de bloqueo `~$*.docx` impide borrar la carpeta.
