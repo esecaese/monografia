@@ -1,10 +1,10 @@
-## OBJETIVOS
+## Objetivos
 
-### GENERAL
+### General
 
 - Analizar la viabilidad de automatizar la liquidación de aranceles consulares mediante un asistente virtual integrado al sistema de apostilla del MRE, con base en la normativa vigente y en los principios de la gestión digital pública, para garantizar un acceso equitativo al servicio y eliminar las barreras logísticas de traslado que enfrentan los ciudadanos del interior del país y del extranjero.
 
-### ESPECÍFICOS
+### Específicos
 
 - Identificar el marco normativo y tarifario vigente aplicable a la liquidación de aranceles consulares en Paraguay.
 - Describir las limitaciones del procedimiento actual de liquidación manual y centralizada, identificando las barreras que enfrentan los usuarios de zonas rurales o del exterior.

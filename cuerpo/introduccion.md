@@ -1,4 +1,4 @@
-# INTRODUCCIÓN
+# Introducción
 
 En el contexto contemporáneo de la administración pública, la adopción del gobierno digital se ha consolidado como un pilar fundamental para garantizar la eficiencia, transparencia e inclusión en la provisión de servicios estatales.
 

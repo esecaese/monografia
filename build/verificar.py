@@ -30,6 +30,13 @@ ENTRADAS_BIBLIOGRAFIA = 16   # 9 fuentes primarias + 7 secundarias
 VINETAS_OBJETIVOS = 6        # 1 objetivo general + 5 específicos
 CANTIDAD_CAPITULOS = 5
 
+# Indicación del profesor: estas secciones llevan el título de nivel 1 en modo
+# oración y pegado a la izquierda; el resto va centrado y en mayúsculas, como
+# pide la Resolución. Se declaran tal como deben aparecer impresos.
+TITULOS_EN_MODO_ORACION = (
+    "Introducción", "Justificación", "Metodología", "Limitaciones",
+)
+
 resultados = []
 
 
@@ -114,13 +121,28 @@ def verificar(ruta):
         "updateFields activado (Word ofrece armar el índice al abrir)")
 
     print("\n=== TÍTULOS DE NIVEL 1 ===")
-    titulos = [p.text for p in doc.paragraphs if p.style.name == "Heading 1"]
+    encabezados = [p for p in doc.paragraphs if p.style.name == "Heading 1"]
+    titulos = [p.text for p in encabezados]
     for texto in titulos:
         print("   -", texto)
-    chk(all(t == t.upper() for t in titulos), "todos en mayúsculas")
+
+    # Dos regímenes: los de modo oración y el resto.
+    oracion = [p for p in encabezados if p.text in TITULOS_EN_MODO_ORACION]
+    mayusculas = [t for t in titulos if t not in TITULOS_EN_MODO_ORACION]
+
+    chk(all(t == t.upper() for t in mayusculas),
+        "en mayúsculas todos los que no van en modo oración")
+    chk(len(oracion) == len(TITULOS_EN_MODO_ORACION),
+        f"{len(oracion)} títulos en modo oración "
+        f"(esperado {len(TITULOS_EN_MODO_ORACION)})")
+    chk(all(p.text == p.text.capitalize() for p in oracion),
+        "los de modo oración llevan sólo la primera letra en mayúscula")
+    chk(all(str(p.paragraph_format.alignment) == "LEFT (0)" for p in oracion),
+        "los de modo oración pegados a la izquierda")
+
     chk(all(not t.endswith(".") for t in titulos), "ninguno termina en punto")
-    chk(titulos[:6] == ["DEDICATORIA", "AGRADECIMIENTOS", "INTRODUCCIÓN",
-                        "JUSTIFICACIÓN", "METODOLOGÍA", "LIMITACIONES"],
+    chk(titulos[:6] == ["DEDICATORIA", "AGRADECIMIENTOS", "Introducción",
+                        "Justificación", "Metodología", "Limitaciones"],
         "orden de los primeros seis")
     chk(titulos[-1] == "BIBLIOGRAFÍA", f"el último es {titulos[-1]}")
     chk(sum(1 for t in titulos if t.startswith("CAPÍTULO")) == CANTIDAD_CAPITULOS,

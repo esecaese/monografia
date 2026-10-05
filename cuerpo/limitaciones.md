@@ -1,4 +1,4 @@
-# LIMITACIONES
+# Limitaciones
 
 La presente investigación reconoce las siguientes limitaciones, propias de su naturaleza documental y del objeto de estudio abordado.
 

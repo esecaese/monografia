@@ -60,6 +60,14 @@ SANGRIA_CITA = Cm(1.27)
 FORMATO_NUM_PRELIMINARES = "lowerRoman"
 FORMATO_NUM_CUERPO = "decimal"
 
+# Indicación del profesor (octubre de 2026): en las secciones del cuerpo previas
+# a los capítulos —de la Introducción a las Limitaciones— el título de nivel 1 va
+# en modo oración y pegado a la izquierda, y no centrado y en mayúsculas como
+# pide la Resolución. Recién a partir de los capítulos el título vuelve al formato
+# de la Resolución. Qué secciones quedan afectadas se declara en
+# TITULOS_EN_MODO_ORACION, en generar_docx.py; acá vive sólo la alineación.
+ALINEACION_TITULO_MODO_ORACION = WD_ALIGN_PARAGRAPH.LEFT
+
 IDIOMA = "es-PY"
 
 # Nombres de los meses, para la fecha de la carátula. La Resolución no fija la

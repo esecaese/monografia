@@ -42,6 +42,7 @@ from formato import (                                        # noqa: E402
     FORMATO_NUM_PRELIMINARES,
     FUENTE,
     PALABRAS_POR_PAGINA,
+    ALINEACION_TITULO_MODO_ORACION,
     MESES,
     TAM_CARATULA,
     TAM_CUERPO,
@@ -87,6 +88,23 @@ CUERPO = [
     ("cuerpo/conclusiones.md", "cuerpo", True),
     ("postexto/bibliografia.md", "bibliografia", False),
 ]
+
+# Secciones cuyo título de nivel 1 va en modo oración y pegado a la izquierda,
+# por indicación del profesor. Recién a partir de los capítulos el título vuelve a
+# ir centrado y en mayúsculas. Los subtítulos de `objetivos.md` no necesitan
+# figurar acá: los niveles 2 y 3 ya respetan la caja tal como se escribe en el .md
+# y ya van alineados a la izquierda.
+#
+# El título conserva el estilo "Heading 1" y sólo se le sobreescribe la
+# alineación en el párrafo: un estilo propio lo sacaría del índice, porque el
+# switch \o del campo TOC selecciona por estilo (ver README, "La trampa del
+# campo TOC").
+TITULOS_EN_MODO_ORACION = {
+    "cuerpo/introduccion.md",
+    "cuerpo/justificacion.md",
+    "cuerpo/metodologia.md",
+    "cuerpo/limitaciones.md",
+}
 
 
 # --------------------------------------------------------------------------
@@ -193,23 +211,31 @@ def escribir_texto(parrafo, texto, tam=TAM_CUERPO):
     return parrafo
 
 
-def agregar_titulo(documento, nivel, texto, salto_pagina, estilo=None):
-    if nivel == 1:
+def agregar_titulo(documento, nivel, texto, salto_pagina, estilo=None,
+                   modo_oracion=False):
+    if nivel == 1 and not modo_oracion:
         # "centrado, mayúsculas, negrita, sin punto final".
         texto = texto.rstrip(".").upper()
     parrafo = documento.add_paragraph(style=estilo or f"Heading {nivel}")
     parrafo.paragraph_format.page_break_before = salto_pagina
+    if nivel == 1 and modo_oracion:
+        # Se mantiene el estilo "Heading 1" para que el título siga entrando en
+        # el campo TOC, y sólo se sobreescribe la alineación. La caja llega tal
+        # como se escribió en el .md, igual que en los niveles 2 y 3.
+        parrafo.paragraph_format.alignment = ALINEACION_TITULO_MODO_ORACION
     return escribir_texto(parrafo, texto)
 
 
 def agregar_bloques(documento, bloques, estilo_parrafo="Normal",
-                    estilo_vineta="List Bullet", primer_salto=False):
+                    estilo_vineta="List Bullet", primer_salto=False,
+                    modo_oracion=False):
     """Escribe una lista de bloques. Cada título de nivel 1 abre página nueva."""
     es_primero = True
     for tipo, texto in bloques:
         if tipo == "h1":
             agregar_titulo(documento, 1, texto,
-                           salto_pagina=primer_salto if es_primero else True)
+                           salto_pagina=primer_salto if es_primero else True,
+                           modo_oracion=modo_oracion)
         elif tipo in ("h2", "h3"):
             agregar_titulo(documento, int(tipo[1]), texto, salto_pagina=False)
         elif tipo == "vineta":
@@ -385,7 +411,8 @@ def generar():
         estilo = "Bibliografia APA" if modo == "bibliografia" else "Normal"
         vineta = "Bibliografia APA" if modo == "bibliografia" else "List Bullet"
         agregar_bloques(documento, analizados[ruta], estilo_parrafo=estilo,
-                        estilo_vineta=vineta, primer_salto=not primero)
+                        estilo_vineta=vineta, primer_salto=not primero,
+                        modo_oracion=ruta in TITULOS_EN_MODO_ORACION)
         primero = False
 
     actualizar_campos_al_abrir(documento)

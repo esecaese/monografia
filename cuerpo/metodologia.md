@@ -1,4 +1,4 @@
-# METODOLOGÍA
+# Metodología
 
 ## Enfoque
 

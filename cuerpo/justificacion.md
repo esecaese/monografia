@@ -1,4 +1,4 @@
-# JUSTIFICACIÓN
+# Justificación
 
 El presente trabajo se justifica, en primer lugar, porque existe un problema concreto y verificable en la gestión consular: la liquidación de aranceles para legalizaciones y apostillas se realiza de forma manual y está centralizada en Asunción. Esta centralización impone costos de traslado, tiempos de espera y una incertidumbre sobre el monto a abonar que no afecta a todos los ciudadanos por igual, sino que recae con mayor peso sobre quienes residen lejos de la capital. Estudios sobre trámites públicos en la región han cuantificado el peso que este tipo de costos indirectos representa para el ciudadano (Roseth, Reyes y Santiso, 2018), lo que confirma que no se trata de una percepción aislada sino de un fenómeno documentado. Esa desigualdad de acceso resulta incompatible con la obligación estatal de prestar servicios públicos en condiciones equitativas, lo que convierte al tema en un problema institucional real y no en una cuestión meramente teórica.
 

@@ -27,7 +27,7 @@ Monografia/
 │   ├── formato.py               # todas las constantes de la Resolución, en un solo lugar
 │   ├── crear_plantilla.py       # genera referencia/plantilla_formato.docx
 │   ├── generar_docx.py          # script principal de build
-│   ├── verificar.py             # 52 comprobaciones sobre el .docx generado
+│   ├── verificar.py             # 55 comprobaciones sobre el .docx generado
 │   ├── verificar_en_word.ps1    # abre en Word, actualiza el índice, cuenta páginas
 │   └── requirements.txt
 ├── referencia/
@@ -61,7 +61,7 @@ Es deliberadamente mínimo — reconoce lo que este trabajo usa y nada más:
 
 | En el `.md` | En el `.docx` |
 |---|---|
-| `# Título` | nivel 1: mayúsculas, negrita, centrado, página nueva |
+| `# Título` | nivel 1: negrita y página nueva. Mayúsculas y centrado desde los capítulos; en modo oración y a la izquierda en las secciones listadas en `TITULOS_EN_MODO_ORACION` |
 | `## Subtítulo` / `### Sub-sub` | negrita, alineado a la izquierda, caja tal como se escribió |
 | Párrafos separados por línea en blanco | texto corrido justificado |
 | `- ` al inicio de línea | viñeta (o entrada de bibliografía con sangría francesa, en `bibliografia.md`) |
@@ -129,7 +129,7 @@ Dos comprobaciones complementarias. Conviene correr las dos después de cualquie
 python build/verificar.py
 ```
 
-52 comprobaciones: secciones y `pgNumType`, medidas de hoja y márgenes, estilos (fuentes, tamaños, interlineado, alineaciones), presencia del campo TOC y de `updateFields`, orden y caja de los títulos, y contenido (que los comentarios HTML no se hayan filtrado, que las cursivas se hayan convertido, cantidad de entradas de bibliografía y de viñetas). Devuelve 0 si todo pasa.
+55 comprobaciones: secciones y `pgNumType`, medidas de hoja y márgenes, estilos (fuentes, tamaños, interlineado, alineaciones), presencia del campo TOC y de `updateFields`, orden y caja de los títulos, y contenido (que los comentarios HTML no se hayan filtrado, que las cursivas se hayan convertido, cantidad de entradas de bibliografía y de viñetas). Devuelve 0 si todo pasa.
 
 Los conteos esperados están declarados como constantes al inicio del archivo (`ENTRADAS_BIBLIOGRAFIA`, `VINETAS_OBJETIVOS`, `CANTIDAD_CAPITULOS`). **Cuando el contenido cambie a propósito, actualizarlos**; que fallen es justamente la señal de que algo se agregó o se perdió sin querer.
 
@@ -162,7 +162,7 @@ Todas las medidas están centralizadas en [`build/formato.py`](build/formato.py)
 | Fecha de presentación en la carátula | `mes_anio_24pt: "auto"` → `resolver_mes_anio`, con los nombres de `MESES` |
 | Parte pre textual en números romanos, centrados arriba | secciones 1-2, `numerar_paginas(..., "lowerRoman")` |
 | Cuerpo en números arábigos desde la Introducción, centrados arriba | sección 3, `numerar_paginas(..., "decimal")` |
-| Encabezados de nivel 1 centrados, en mayúscula, negrita, sin punto final | `agregar_titulo` (nivel 1) + estilo `Heading 1` |
+| Encabezados de nivel 1 centrados, en mayúscula, negrita, sin punto final | `agregar_titulo` (nivel 1) + estilo `Heading 1`. **Con la excepción indicada por el profesor** para las secciones previas a los capítulos —ver abajo |
 | Subtítulos en negrita, caja tal como se escribieron | estilos `Heading 2` / `Heading 3` |
 | Índice como tabla de contenido automática | campo `TOC \o "1-3" \h \z \u` + `<w:updateFields/>` |
 | El índice no se lista a sí mismo | el encabezado ÍNDICE usa el estilo `Titulo preliminar` |
@@ -185,6 +185,8 @@ Están todas marcadas con comentario en `build/formato.py` y se revierten en una
 - **Alineación del texto corrido:** justificada (`ALINEACION_CUERPO`).
 - **Romanos en minúscula** (i, ii, iii) para la parte pre textual (`FORMATO_NUM_PRELIMINARES`); cambiar a `"upperRoman"` para I, II, III.
 - **Carátula en la página i, sin número impreso;** la dedicatoria arranca en ii.
+- **Títulos de nivel 1 en modo oración** de la Introducción a las Limitaciones (`TITULOS_EN_MODO_ORACION`, en `generar_docx.py`). Es una **indicación expresa del profesor**, no una lectura de la Resolución, que para el nivel 1 pide mayúsculas y centrado sin excepciones. Se sigue al profesor porque es quien evalúa. Quitar una ruta del conjunto devuelve esa sección al formato de la Resolución.
+- **El salto de página se conserva** en esas secciones: el profesor habló de caja y alineación, no de la paginación.
 - **Nombre del mes en la carátula:** `"Setiembre"`, no `"Septiembre"` (`MESES`, en `formato.py`). Ambas formas son correctas; se eligió la habitual en la normativa paraguaya. Van con inicial mayúscula porque la fecha es una línea suelta de portada y no texto corrido.
 - **Bibliografía alineada a la izquierda** en lugar de justificada: las entradas con URLs largas abren huecos entre palabras que APA desaconseja.
 - **La dedicatoria y los agradecimientos sí aparecen en el índice**, con su numeración romana. Para excluirlos, aplicarles el estilo `Titulo preliminar` en `generar_docx.py`, igual que al encabezado ÍNDICE.
@@ -235,8 +237,7 @@ Cada capítulo del cuerpo responde a **un único objetivo específico**, decisi�
 - **Valor del jornal mínimo diario vigente**, para poder expresar los aranceles en guaraníes en el Capítulo II.
 - **La Ley N.º 6935/22 ya no se cita en el cuerpo** tras la corrección del § 1.3, pero sigue en la bibliografía. APA 7 pide que la lista de referencias sólo contenga obras citadas en el texto. Sostiene la ficha el hecho de que la carátula invoca su artículo 110; si se prefiere el criterio estricto, hay que quitar la entrada.
 - El **Capítulo V** debe organizarse en subtítulos explícitos de **viabilidad técnica / operativa / normativa**, conforme a la observación del profesor.
-- **`## OBJETIVOS` es un título de nivel 2**, no de nivel 1: así fluye a continuación de la Introducción, que termina anunciándolos, en vez de abrir página nueva. En el índice aparece anidado bajo INTRODUCCIÓN. Si se prefiere como sección independiente, cambiar `##` por `#` en `cuerpo/objetivos.md`.
-- **`### GENERAL` y `### ESPECÍFICOS` están en mayúsculas** en `cuerpo/objetivos.md` y así aparecen en el índice. La Resolución pide que los subtítulos lleven "primera letra mayúscula y el resto minúscula". El texto se dejó tal como fue redactado; para cumplir la regla al pie de la letra habría que escribirlos `### General` y `### Específicos`.
+- **`## Objetivos` es un título de nivel 2**, no de nivel 1: así fluye a continuación de la Introducción, que termina anunciándolos, en vez de abrir página nueva. En el índice aparece anidado bajo Introducción. Si se prefiere como sección independiente, cambiar `##` por `#` en `cuerpo/objetivos.md`.
 - El script **no procesa imágenes** desde Markdown. La Resolución exige que gráficos, tablas y cuadros se inserten **como imagen**; el plan es agregarlos durante la revisión final en Word, o extender el build cuando haga falta.
 
 ---
@@ -329,6 +330,28 @@ resuelve al mes y año en que se corre, con los nombres de `MESES` en `formato.p
 Se dejó como valor y no como código fijo a propósito: escribir la fecha literal en
 `caratula.md` sigue funcionando y tiene prioridad sobre `auto`. Eso importa al entregar,
 porque una fecha automática cambia sola si el documento se regenera al mes siguiente.
+
+### Títulos en modo oración antes de los capítulos
+
+Indicación del profesor: donde arrancan los números arábigos —la Introducción— el título debe ir
+en modo oración y pegado a la izquierda, lo mismo Objetivos con sus dos subtítulos, y **recién al
+iniciar los capítulos** vuelve al formato centrado y en mayúsculas. Se extendió el criterio a
+Justificación, Metodología y Limitaciones, que quedan entre Objetivos y el Capítulo I y son el
+mismo tipo de sección. Conclusiones y Bibliografía quedan como los capítulos.
+
+Dos cosas que hicieron el cambio más chico de lo que parecía:
+
+- **Objetivos no necesitó código.** Es un título de nivel 2, y los niveles 2 y 3 ya van a la izquierda y ya respetan la caja tal como se escribe en el `.md`. Alcanzó con corregir `objetivos.md`, lo que de paso cerró el pendiente de `### GENERAL` / `### ESPECÍFICOS` en mayúsculas.
+- **La caja viaja en el `.md`, no en el código.** Los títulos afectados se escriben ya en modo oración (`# Introducción`) y el build deja de aplicarles `.upper()`. Así lo que se lee en el Markdown es lo que sale impreso, igual que en los niveles 2 y 3.
+
+Lo único delicado fue la alineación. La tentación es crear un estilo nuevo, y es la trampa del
+campo TOC otra vez: un estilo propio habría sacado esas secciones del índice. Se conserva
+`Heading 1` y sólo se sobreescribe la alineación en el párrafo, con formato directo.
+
+`verificar.py` pasó de 52 a 55 comprobaciones: el chequeo "todos en mayúsculas" no podía seguir
+valiendo para todos, así que ahora distingue los dos regímenes y verifica, sobre los títulos en
+modo oración, que sean exactamente cuatro, que lleven sólo la primera letra en mayúscula y que
+estén efectivamente alineados a la izquierda.
 
 ### Rastrillos ya pisados
 
