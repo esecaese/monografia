@@ -12,6 +12,7 @@
 - Decreto N.º 2129/14 por el cual se reglamenta la Ley N.º 5.254/2014 y se establecen las tasas por la expedición de la Apostilla en la Dirección de Legalizaciones del Ministerio de Relaciones Exteriores. (2014). Presidencia de la República del Paraguay. https://silpy.congreso.gov.py/web/descarga/decreto-100077
 - Ley N.º 7196/23 que deroga varios artículos de la Ley N.º 4.033/2010, del Arancel Consular. (2023). Congreso de la Nación Paraguaya. https://www.bacn.gov.py/leyes-paraguayas/12025/
 - Decreto N.º 6225/2026 por el cual se reajusta el salario mínimo legal para actividades diversas no especificadas. (2026). Presidencia de la República del Paraguay. https://www.mtess.gov.py/
+- Resolución SDCU N.º 1.670/2022 por la cual se establece la obligatoriedad de fijar los precios en cifras redondas y se abroga la Resolución N.º 347/14. (2022). Secretaría de Defensa del Consumidor y el Usuario. https://www.sedeco.gov.py/
 
 ## Fuentes secundarias (académicas e institucionales)
 
