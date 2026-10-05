@@ -49,6 +49,12 @@ Monografia/
 │   └── conclusiones.md
 ├── postexto/
 │   └── bibliografia.md
+├── fuentes/                     # copia local de todo lo que el trabajo cita
+│   ├── README.md                # índice comentado: qué aporta cada fuente
+│   ├── normativa/               # leyes y decretos
+│   ├── academicas/              # papers e informes
+│   ├── institucionales/         # páginas y manuales del MRE
+│   └── capturas/                # extractos que no sobreviven como PDF
 └── output/                      # todo generado, ignorado por git
     ├── monografia-aranceles-consulares.docx
     ├── vista-previa.pdf
@@ -235,7 +241,10 @@ Cada capítulo del cuerpo responde a **un único objetivo específico**, decisi�
 - **Congelar la fecha de la carátula** al entregar: hoy vale `auto` y sigue al reloj, de modo que el mes cambia si el documento se regenera más adelante. Antes de imprimir la versión definitiva, reemplazar `auto` por el texto literal en `preliminares/caratula.md`.
 - **Ficha APA completa de Alfonso (1995)**, citado en Metodología y todavía sin referencia localizada.
 - **Día y mes exactos del Decreto N.º 2129/14** para la ficha bibliográfica: el escaneo de SILpy los trae ilegibles por OCR. Todo indica el 26 de agosto de 2014; falta confirmarlo contra la copia oficial.
-- **Texto literal del artículo 17 de la Ley N.º 4.033/10**, al que remite el régimen de exoneraciones del Decreto N.º 2129/14. El § 2.4 lo cita por remisión, sin describir su contenido, igual que el Capítulo I. Hace falta para modelar la regla en el Capítulo IV. BACN rechaza las descargas automatizadas; conviene buscarlo en SILpy o pedir la copia oficial.
+- **Dos fuentes citadas que faltan en `fuentes/`**: el informe del BID (Roseth, Reyes y Santiso, 2018) y la Recomendación de la UNESCO (2021). Ambos sitios rechazan las descargas automatizadas; hay que guardarlos a mano desde el navegador. Las URL y los nombres de archivo están en `fuentes/README.md`.
+- **Tampoco se localizaron** copias de acceso abierto de la Ley N.º 133/93, el Decreto-Ley N.º 46/72 y la Ley N.º 5.254/14. Los tres se citan en el cuerpo. El contenido operativo de la Ley N.º 5.254/14 está, de todos modos, transcripto en los considerandos del Decreto N.º 2129/14, que sí está archivado.
+- **Texto literal de la Resolución SDCU N.º 1.670/2022**, citada en el § 2.3. No está en el sitio de la SEDECO; por ahora se archivó la nota oficial de la Agencia IP. Hace falta para resolver si el redondeo hacia arriba que aplica el MRE se ajusta al mandato de que el ajuste sea favorable al consumidor.
+- **La Ley N.º 7196/23 ya no se cita en el cuerpo** tras eliminarse el § 2.5, pero sigue en la bibliografía. Mismo criterio pendiente que con la Ley N.º 6935/22: o se quita la entrada, o se acepta la excepción.
 - **Ficha del Decreto N.º 6225/2026** (jornal mínimo): la entrada bibliográfica apunta al sitio del MTESS y no al texto del decreto en Gaceta Oficial. Conviene reemplazar la URL por la fuente normativa directa.
 - **El jornal mínimo tiene fecha de vencimiento.** El Decreto N.º 6225/2026 rige hasta el 30 de junio de 2027. Si el trabajo se presenta después, el § 2.3 y los importes citados quedan desactualizados.
 - **La Ley N.º 6935/22 ya no se cita en el cuerpo** tras la corrección del § 1.3, pero sigue en la bibliografía. APA 7 pide que la lista de referencias sólo contenga obras citadas en el texto. Sostiene la ficha el hecho de que la carátula invoca su artículo 110; si se prefiere el criterio estricto, hay que quitar la entrada.
@@ -384,11 +393,108 @@ legalizaciones del MRE. `ENTRADAS_BIBLIOGRAFIA` y `VINETAS_OBJETIVOS` se actuali
 `verificar.py`; esta última ahora cuenta 12, porque el § 2.2 agrega seis viñetas a las seis de
 Objetivos. El nombre de la constante quedó corto, pero se conservó para no tocar más de lo necesario.
 
+### Carpeta de fuentes y correcciones al Capítulo II
+
+Se armó `fuentes/` con todo lo que el trabajo cita. En el camino, dos documentos que el autor
+aportó —la Ley N.º 4.033/10 y el Decreto N.º 6225/2026— obligaron a corregir el Capítulo II en dos
+puntos, uno de ellos importante.
+
+**La delegación estaba mal atribuida.** Se había escrito que el artículo 6º de la Ley N.º 4.033/10
+contenía la delegación en que se funda el Decreto N.º 2129/14. Es incorrecto: ese artículo trata de
+estampillas y forma de percepción. La delegación está en el **artículo 6º in fine de la Ley
+N.º 5.254/14**, según los considerandos del propio Decreto. El apartado que lo discutía terminó
+eliminándose (ver más abajo), pero el dato se conserva en la nota de trabajo del capítulo porque
+hace falta para el Capítulo V.
+
+**El artículo 17 resultó ser mucho más que un dato que faltaba.** Es el fuero de pobreza, y manda
+conceder la exoneración "excepcionalmente en los casos indispensables y con criterio restrictivo",
+previa comprobación por los funcionarios consulares. Tres consecuencias:
+
+- Su destinatario es el connacional residente en el exterior, es decir, uno de los colectivos que motivan el trabajo.
+- Es el único componente discrecional de todo el régimen: el cálculo del arancel es reglado, pero esta exoneración está deliberadamente confiada al juicio del funcionario.
+- Por lo tanto marca el límite material de la automatización, y concuerda con la conclusión de Dávila Elguera (2023) ya citada en el § 1.3.
+
+El § 2.4 se amplió con la cita textual y ese análisis, y el cierre del capítulo pasó de tres
+elementos a cuatro. El Capítulo IV tendrá que prever una derivación al funcionario competente en
+lugar de resolver esa causal por sí mismo.
+
+Conviene no perder una precisión de método: el artículo 6º in fine de la Ley N.º 5.254/14 fija como
+finalidad expresa de la delegación **proceder a través de medios informáticos**. Es respaldo
+normativo directo para la propuesta, y el § 2.5 ya lo deja anotado para la viabilidad normativa del
+Capítulo V.
+
+Sobre la fecha del Decreto N.º 2129/14: el OCR del ejemplar oficial confirma el día 26 y el año
+2014, pero el mes sigue ilegible. Agosto continúa siendo lo más probable y el pendiente sigue
+abierto.
+
+### Recorte del Capítulo II y base normativa del redondeo
+
+Tres decisiones del autor, todas en la misma dirección: que los capítulos no se vuelvan un tratado
+de derecho.
+
+**El redondeo sí está reglamentado.** El § 2.3 lo presentaba como una convención administrativa sin
+formulación expresa. Es incorrecto: la **Resolución SDCU N.º 1.670/2022** de la SEDECO, que abrogó
+la Resolución N.º 347/14, obliga a fijar los precios en cifras redondas y a practicar el ajuste en
+la denominación de cincuenta guaraníes, alcanzando expresamente a los comprobantes de los servicios
+públicos. El apartado se reescribió: el importe percibido resulta de encadenar dos reglas de fuente
+distinta —la escala arancelaria, que da el coeficiente, y la normativa de redondeo monetario, que
+fija la expresión final—, y eso es justamente lo que una automatización debe explicitar. La
+verificación aritmética se conserva, porque sigue probando que la tabla publicada se deriva del
+jornal vigente.
+
+**Se eliminaron dos apartados.** El de la vigencia tras la Ley N.º 7196/23 y el de la dispersión
+normativa. Razón del autor: la derogación de 2023 no incide en la práctica sobre las apostillas y
+legalizaciones en que la Dirección de Legalizaciones tiene rol local, y el capítulo no debe
+extenderse en análisis de leyes. Son 622 palabras menos. El capítulo quedó en cinco apartados y el
+cuerpo computable sigue en 21 páginas, por encima del mínimo.
+
+Dos hallazgos de los apartados eliminados quedaron guardados en la nota de trabajo del
+`capitulo-2.md`, porque no conviene perderlos:
+
+- La base legal de la tasa está intacta: la Ley N.º 7196/23 no toca ninguna disposición de la Ley N.º 5.254/14, donde vive la delegación.
+- Esa delegación fija como finalidad expresa **proceder a través de medios informáticos**. Es respaldo normativo directo para la propuesta y corresponde usarlo en la viabilidad normativa del Capítulo V.
+
+**Efecto colateral en la bibliografía.** La Ley N.º 7196/23 ya no se cita en el cuerpo, pero sigue
+en la lista de referencias. Es el mismo caso que la Ley N.º 6935/22: APA 7 pide que la lista
+contenga sólo obras citadas. Queda como pendiente de decisión.
+
+Una cuestión que el § 2.3 deliberadamente no aborda: la Resolución SDCU N.º 1.670/2022 manda que el
+ajuste sea **favorable al consumidor**, y la tabla del MRE redondea siempre hacia arriba —G. 46 de
+más en la Apostilla—, o sea en contra del usuario. Se dejó fuera para no alargar el capítulo, pero
+está anotado en el `capitulo-2.md` por si conviene retomarlo en el Capítulo V. Antes de afirmarlo
+hace falta el texto literal de la Resolución, que todavía no se consiguió.
+
 ### Rastrillos ya pisados
 
 - `verificar_en_word.ps1` tuvo que guardarse **con BOM UTF-8**: Windows PowerShell 5.1 lee los `.ps1` sin BOM como ANSI y destroza los acentos de los mensajes.
 - `Documento.SaveAs()` por COM exige `[ref]` sobre **variables tipadas**; pasarle directamente el resultado de `Join-Path` falla con "no se puede convertir el valor de tipo psobject".
 - Correr `verificar_en_word.ps1` dos veces seguidas muy rápido falla con `COMException`: la instancia anterior de Word sigue cerrándose.
+
+---
+
+## 8 bis. Las fuentes
+
+`fuentes/` guarda una copia local de todo lo que el trabajo cita o consulta: leyes, decretos,
+papers, informes, páginas institucionales y extractos. El índice comentado está en
+[`fuentes/README.md`](fuentes/README.md), con qué aporta cada documento y a qué apartado sirve.
+
+La razón de versionarlas es práctica: varias normas viven en portales que cambian de URL, bloquean
+descargas automatizadas o directamente caen. El trabajo tiene que poder defenderse ante el Tribunal
+sin depender de que un sitio oficial siga en línea el día de la presentación.
+
+**Los libros con derechos de autor no se versionan.** Hernández Sampieri y otros (2014) y Russell y
+Norvig (2021) son obras comerciales y este repositorio es público: subirlas sería redistribuirlas.
+Para tener copias a mano mientras se trabaja está `fuentes/_privado/`, que el `.gitignore` excluye.
+
+### Leer los PDF oficiales escaneados
+
+En este equipo no hay poppler ni OCR, así que para los ejemplares escaneados sirven dos caminos:
+
+- **Con capa OCR** (el Decreto N.º 2129/14): descomprimir los streams con `zlib` y juntar los literales entre paréntesis. Los acentos vienen en octal y hay que decodificarlos.
+- **Sin capa OCR** (la Ley N.º 7196/23): extraer el JPEG embebido —el objeto `/Subtype /Image` con filtro `/DCTDecode`— y leer la imagen directamente.
+
+El Decreto N.º 6225/2026 es un tercer caso: tiene texto real, pero con una fuente CID subsetada que
+no se decodifica limpiamente sin poppler. Sus cifras se confirmaron contra el sitio del MTESS.
 
 ---
 
