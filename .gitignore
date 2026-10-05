@@ -30,6 +30,13 @@ output/_combinado.md
 # Descomentar la línea siguiente si preferís NO versionarla.
 # referencia/plantilla_formato.docx
 
+# --- Fuentes ---
+# Las fuentes se versionan (ver fuentes/README.md): son normas y documentos
+# públicos, y el trabajo debe poder defenderse aunque un portal oficial caiga.
+# Excepción: libros y obras comerciales con derechos de autor. El repositorio
+# es público, de modo que subirlos sería redistribuirlos. Copias personales:
+fuentes/_privado/
+
 # --- Sistema operativo ---
 Thumbs.db
 ehthumbs.db

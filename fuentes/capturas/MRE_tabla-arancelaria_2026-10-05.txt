@@ -1,0 +1,43 @@
+TABLA ARANCELARIA PUBLICADA POR EL MRE
+Capturada de https://www.mre.gov.py/legalizaciones-apostilla/ el 5 de octubre de 2026
+
+Jornal minimo diario vigente (Decreto 6225/2026, desde 01/07/2026): Gs. 117.077
+
+--- Importes publicados ---
+  01. Cert. de Nacimiento Gs. 58.550
+  02. Cert. de Defunción Gs. 117.100
+  03. Cert. de Matrimonio Gs. 58.550
+  04. Cert. de Antecedentes Gs. 58.550
+  05. Perm. de Menores Gs. 58.550
+  06. Poderes Gs. 117.100
+  07. Perm. p/ Conducir Gs. 117.100
+  08. Pasaporte Gs. 117.100
+  09. Doc. Comercial Gs. 351.250
+  10. Cert. Fitosanitario Gs. 117.100
+  11. Sentencia Gs. 351.250
+  12. Exhorto Gs. 351.250
+  13. Varios Gs. 117.100
+  01. Relativo a Estudios Gs. 234.200
+  02. Cert. de Nacimiento Gs. 351.250
+  03. Cert. de Defunción Gs. 351.250
+  04. Cert. de Matrimonio Gs. 351.250
+  05. Cert. de Antecedentes Gs. 351.250
+  06. Vida y Residencia Gs. 351.250
+  07. Adopción Gs. 1.170.800
+  08. Constitución de Soc. Gs. 585.400
+  09. Poderes Gs. 585.400
+  10. Contratos Gs. 585.400
+  11. Licitaciones Gs. 585.400
+  12. Varios Extranjeros Gs. 585.400
+
+--- Cotejo contra la escala legal de la Ley 1030/97 ---
+ coef.         exacto    redondeo a 50    publicado  coincide
+   0.5       58.538,5           58.550       58.550  si
+     1        117.077          117.100      117.100  si
+     2        234.154          234.200      234.200  si
+     3        351.231          351.250      351.250  si
+     5        585.385          585.400      585.400  si
+    10      1.170.770        1.170.800    1.170.800  si
+
+Los importes publicados son el valor legal redondeado al multiplo superior de Gs. 50: True
+Sobreprecio de la Apostilla por el redondeo: Gs. 46
