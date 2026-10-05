@@ -11,11 +11,13 @@
 - Ley N.º 5.254/14 que modifica los artículos 3º, 6º, 12 y 14 de la Ley N.º 4.033/2010, del Arancel Consular. (2014). Congreso de la Nación Paraguaya.
 - Decreto N.º 2129/14 por el cual se reglamenta la Ley N.º 5.254/2014 y se establecen las tasas por la expedición de la Apostilla en la Dirección de Legalizaciones del Ministerio de Relaciones Exteriores. (2014). Presidencia de la República del Paraguay. https://silpy.congreso.gov.py/web/descarga/decreto-100077
 - Ley N.º 7196/23 que deroga varios artículos de la Ley N.º 4.033/2010, del Arancel Consular. (2023). Congreso de la Nación Paraguaya. https://www.bacn.gov.py/leyes-paraguayas/12025/
+- Decreto N.º 6225/2026 por el cual se reajusta el salario mínimo legal para actividades diversas no especificadas. (2026). Presidencia de la República del Paraguay. https://www.mtess.gov.py/
 
 ## Fuentes secundarias (académicas e institucionales)
 
 - Dávila Elguera, D. C. (2023). La inteligencia artificial y su eventual uso en trámites consulares. *Política Internacional*, (134), 44-58. https://doi.org/10.61249/pi.vi134.89
 - Hernández Sampieri, R., Fernández Collado, C., y Baptista Lucio, P. (2014). *Metodología de la investigación* (6.ª ed.). McGraw-Hill.
+- Ministerio de Relaciones Exteriores. (s. f.). *Legalizaciones/Apostilla*. República del Paraguay. https://www.mre.gov.py/legalizaciones-apostilla/
 - Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura. (2021). *Recomendación sobre la ética de la inteligencia artificial*. UNESCO.
 - Organización para la Cooperación y el Desarrollo Económicos. (s. f.). *Digital government and public sector innovation*. https://www.oecd.org/governance/digital-government/
 - Organización para la Cooperación y el Desarrollo Económicos y Banco Interamericano de Desarrollo. (2024). *Índice de Gobierno Digital de América Latina y el Caribe 2023*. https://www.oecd.org/content/dam/oecd/es/publications/reports/2024/11/2023-oecd-idb-digital-government-index-of-latin-america-and-the-caribbean_5a9af6c4/7dc415b7-es.pdf
