@@ -219,7 +219,7 @@ Resolverlo todo en un solo paso elimina una dependencia pesada y deja una única
 | Metodología | Redactada |
 | Limitaciones | Redactadas |
 | Capítulo I — Marco normativo y contexto institucional | Redactado |
-| Capítulo II — Diagnóstico del procedimiento actual | **Pendiente** (objetivo específico 2) |
+| Capítulo II — Diagnóstico del procedimiento actual | Redactado |
 | Capítulo III — Fundamentos de la automatización | **Pendiente** (objetivo específico 3) |
 | Capítulo IV — Diseño del asistente virtual | **Pendiente** (objetivo específico 4) |
 | Capítulo V — Viabilidad de la propuesta | **Pendiente** (objetivo específico 5) |
@@ -228,15 +228,16 @@ Resolverlo todo en un solo paso elimina una dependencia pesada y deja una única
 
 Cada capítulo del cuerpo responde a **un único objetivo específico**, decisión metodológica ya tomada.
 
-**Extensión actual: 23 páginas totales, 16 de cuerpo computable** según Word (de la Introducción a las Conclusiones), sobre un mínimo de 20. Buena parte son páginas casi vacías de los capítulos pendientes.
+**Extensión actual: 29 páginas totales, 21 de cuerpo computable** según Word (de la Introducción a las Conclusiones), sobre un mínimo de 20. El mínimo ya se alcanza con los capítulos III a V y las Conclusiones todavía vacíos.
 
 ### Pendientes abiertos
 
 - **Congelar la fecha de la carátula** al entregar: hoy vale `auto` y sigue al reloj, de modo que el mes cambia si el documento se regenera más adelante. Antes de imprimir la versión definitiva, reemplazar `auto` por el texto literal en `preliminares/caratula.md`.
 - **Ficha APA completa de Alfonso (1995)**, citado en Metodología y todavía sin referencia localizada.
 - **Día y mes exactos del Decreto N.º 2129/14** para la ficha bibliográfica: el escaneo de SILpy los trae ilegibles por OCR. Todo indica el 26 de agosto de 2014; falta confirmarlo contra la copia oficial.
-- **Vigencia del Decreto N.º 2129/14 frente a la Ley N.º 7196/23**, que deroga artículos de la Ley N.º 4.033/10. Hay que verificar si alcanza al artículo 6º (la delegación en que el Decreto se funda) y, en su caso, qué efecto tiene sobre la tasa de la Apostilla. Se resuelve en el Capítulo II.
-- **Valor del jornal mínimo diario vigente**, para poder expresar los aranceles en guaraníes en el Capítulo II.
+- **Texto literal del artículo 17 de la Ley N.º 4.033/10**, al que remite el régimen de exoneraciones del Decreto N.º 2129/14. El § 2.4 lo cita por remisión, sin describir su contenido, igual que el Capítulo I. Hace falta para modelar la regla en el Capítulo IV. BACN rechaza las descargas automatizadas; conviene buscarlo en SILpy o pedir la copia oficial.
+- **Ficha del Decreto N.º 6225/2026** (jornal mínimo): la entrada bibliográfica apunta al sitio del MTESS y no al texto del decreto en Gaceta Oficial. Conviene reemplazar la URL por la fuente normativa directa.
+- **El jornal mínimo tiene fecha de vencimiento.** El Decreto N.º 6225/2026 rige hasta el 30 de junio de 2027. Si el trabajo se presenta después, el § 2.3 y los importes citados quedan desactualizados.
 - **La Ley N.º 6935/22 ya no se cita en el cuerpo** tras la corrección del § 1.3, pero sigue en la bibliografía. APA 7 pide que la lista de referencias sólo contenga obras citadas en el texto. Sostiene la ficha el hecho de que la carátula invoca su artículo 110; si se prefiere el criterio estricto, hay que quitar la entrada.
 - El **Capítulo V** debe organizarse en subtítulos explícitos de **viabilidad técnica / operativa / normativa**, conforme a la observación del profesor.
 - **`## Objetivos` es un título de nivel 2**, no de nivel 1: así fluye a continuación de la Introducción, que termina anunciándolos, en vez de abrir página nueva. En el índice aparece anidado bajo Introducción. Si se prefiere como sección independiente, cambiar `##` por `#` en `cuerpo/objetivos.md`.
@@ -354,6 +355,34 @@ campo TOC otra vez: un estilo propio habría sacado esas secciones del índice. 
 valiendo para todos, así que ahora distingue los dos regímenes y verifica, sobre los títulos en
 modo oración, que sean exactamente cuatro, que lleven sólo la primera letra en mayúscula y que
 estén efectivamente alineados a la izquierda.
+
+### Redacción del Capítulo II
+
+El capítulo se redactó sobre fuentes verificadas, no sobre supuestos. Tres cuestiones quedaron
+resueltas en el camino y conviene no volver a abrirlas:
+
+- **El jornal mínimo diario es de G. 117.077** desde el 1 de julio de 2026, por el Decreto N.º 6225/2026 del 17 de junio de 2026, y rige hasta el 30 de junio de 2027.
+- **El Decreto N.º 2129/14 sigue vigente.** Se leyó el ejemplar oficial sancionado de la Ley N.º 7196/23 (SILpy): deroga los artículos 8º, 9º, 10, 13, 15, 16 y 14 de la Ley N.º 4.033/10, más capítulos de los artículos 4º y 11. El artículo 6º —la delegación en que el Decreto se funda— no está derogado, y el artículo 17 —al que remiten las exoneraciones— tampoco. De los cuatro artículos que la Ley N.º 5.254/14 había modificado (3º, 6º, 12 y 14), sólo cayó el 14.
+- **La tabla de precios del MRE redondea hacia arriba.** Los importes publicados no son el producto exacto del coeficiente por el jornal, sino ese producto redondeado al múltiplo superior de Gs. 50. Se cotejaron los seis coeficientes de la escala (½, 1, 2, 3, 5 y 10 jornales) y los seis coinciden. Ninguna norma establece ese redondeo: es convención administrativa. En la Apostilla representa G. 46 sobre el valor legal exacto.
+
+Dos hallazgos menores que el capítulo aprovecha como argumento:
+
+- El portal de legalizaciones del MRE lista sus instrumentos legales y **omite la Ley N.º 5.254/14 y el Decreto N.º 2129/14**, que son justamente los que fundan el monto de la Apostilla que ese mismo portal cobra. Sirve para mostrar que la dispersión normativa no es un problema teórico.
+- El Manual Consular del MRE (abril de 2025) **no sirve para este capítulo**: es del Servicio Exterior, no de la Dirección de Legalizaciones. Cero menciones de "jornal", de la Ley N.º 1.030/97 y del Decreto N.º 2129/14. No volver a descargarlo para esto.
+
+Sobre el método de lectura de los PDF oficiales: el de la Ley N.º 7196/23 es un escaneo **sin capa de
+texto**, de modo que la técnica de descomprimir streams con `zlib` —la que sirvió para el Decreto
+N.º 2129/14— no da nada. Lo que funcionó fue extraer el JPEG embebido (`/DCTDecode`) del PDF y leer
+la imagen directamente. Queda anotado porque es el camino corto para cualquier otro escaneo de SILpy.
+
+**BACN bloquea las descargas automatizadas** (403 y 500 según el caso). SILpy, en cambio, responde
+sin problema con un user-agent de navegador, y el sitio del MRE también. Para los textos legales,
+ir primero a SILpy.
+
+Dos entradas nuevas de bibliografía (16 → 18): el Decreto N.º 6225/2026 y la página institucional de
+legalizaciones del MRE. `ENTRADAS_BIBLIOGRAFIA` y `VINETAS_OBJETIVOS` se actualizaron en
+`verificar.py`; esta última ahora cuenta 12, porque el § 2.2 agrega seis viñetas a las seis de
+Objetivos. El nombre de la constante quedó corto, pero se conservó para no tocar más de lo necesario.
 
 ### Rastrillos ya pisados
 
